@@ -25,13 +25,18 @@ app.get("/todos", async (req, res) => {
     res.json(verTodos);
 });
 
-app.get("/unico", async (req, res) => {
+app.post("/unico", async (req, res) => {
     const verUm = await prisma.usuarios.findUnique({
         where: {
             email: req.body.email
         }
     })
-    res.json(verUm)
+    const naoCadastrado = "Usuário não cadastrado!"
+    if(verUm === null) {
+        res.json(naoCadastrado)
+    } else {
+        res.json(verUm)
+    }
 })
 
 app.delete("/deletar", async (req, res) => {
@@ -40,7 +45,7 @@ app.delete("/deletar", async (req, res) => {
             email: req.body.email
         }
     })
-    res.json(deletarUm)
+    res.json(deletarUm);
 })
 
 app.listen(8000, () => {
