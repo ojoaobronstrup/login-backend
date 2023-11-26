@@ -7,6 +7,8 @@ const prisma = new PrismaClient()
 app.use(express.json());
 app.use(cors());
 
+const PORT = process.env.PORT || 8000;
+
 app.post("/cadastro", async (req, res)=>{
     const email = req.body.email;
     const senha = req.body.senha;
@@ -48,6 +50,6 @@ app.delete("/deletar", async (req, res) => {
     res.json(deletarUm);
 })
 
-app.listen(8000, () => {
+app.listen(PORT, () => {
     console.log("Escutando!")
 });
