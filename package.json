@@ -1,4 +1,7 @@
 {
+  "engines" : {
+    "node": "14.x"
+  },
   "dependencies": {
     "@prisma/client": "^5.6.0",
     "cors": "^2.8.5",
@@ -7,6 +10,7 @@
     "prisma": "^5.6.0"
   },
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "type": "commonjs"
