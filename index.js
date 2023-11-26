@@ -7,7 +7,7 @@ const prisma = new PrismaClient()
 app.use(express.json());
 app.use(cors());
 
-const PORT = process.env.PORT || 8000;
+const PORT = 8000;
 
 app.post("/cadastro", async (req, res)=>{
     const email = req.body.email;
