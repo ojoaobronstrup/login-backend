@@ -8,6 +8,7 @@ datasource db {
 }
 
 model usuarios {
-  email String  @id @db.VarChar(100)
-  senha String @db.VarChar(8)
+  email     String  @id @db.VarChar(100)
+  senha     String? @db.VarChar(8)
+  registros String? @db.VarChar(500)
 }
